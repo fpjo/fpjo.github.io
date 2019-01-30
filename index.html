@@ -260,7 +260,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-30T15:16:05+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-30T15:23:12+08:00">
                 2019-01-30
               </time>
             
@@ -300,38 +300,7 @@
       
         
           
-            <p>DFS</p>
-<p>�X�m������ѧϰ+1</p>
-<p>������Ҹ����ƺ��ܾ�<strong>�������˱��˵Ĵ��룩</strong></p>
-<p><a href="https://www.luogu.org/problemnew/show/P1731" target="_blank" rel="noopener">���洫����</a></p>
-<p>������˼·��</p>
-<p><strong>DFS״̬</strong>����ǰ�� <strong>dep</strong> ��ʱ���������� <strong>s</strong> ,��ʱ����� <strong>v</strong> ��ÿһ��İ뾶 <strong>r[]</strong> ��ÿһ��ĸ߶� <strong>h[]</strong> </p>
-<p>����ͨ�����ѿ϶������ˣ�TLE��</p>
-<p>����Ҫ��֦</p>
-<p>1��<strong>r��h���Կ���������ȡֵ��Χ</strong>��</p>
-<pre><code>r��h������С��dep(�ǵ�Ȼ�ģ�������С�ˣ�)
-
-r��h�����ܱ���һ�㣨r[dep+1]-1��h[dep+1]-1��������ĿҪ��
-
-����Բ���������ʽ��(��һ����������ֵΪn-v���ǣ�)
-
-����
-</code></pre><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(r[dep] = min((<span class="keyword">int</span>)<span class="built_in">sqrt</span>(n - v) , r[dep + <span class="number">1</span>] - <span class="number">1</span>); r[dep] &gt;= dep; r[dep]--)</span><br><span class="line">		<span class="keyword">for</span>(h[dep] = min((<span class="keyword">int</span>)(<span class="keyword">double</span>)((n-v) / r[dep] / r[dep]), h[dep + <span class="number">1</span>] - <span class="number">1</span>); h[dep] &gt;= dep; h[dep]--)</span><br></pre></td></tr></table></figure>
-<p>��ö�ٷ�Χ��֦��</p>
-<p>2�����ǿ�����������������һ����n,mҪ����1~i����С��v�������Σ��ǿ϶���</p>
-<pre><code>r:1,2,3,4,5,6,��������������i
-
-h:1,2,3,4,5,6,��������������i
-
-v = �� * r * r *h
-
-**����������� v �� 1 ~ dep-1�����Сv ���� n���Ϳ��Լ�֦��**
-</code></pre><p>�������Լ�֦��</p>
-<p>3���������룬���������أ�<br><strong><br>       �����ǰ�ı���� �� 1 ~ dep-1�����Сs ���� �Լ�֮ǰ�ѵ��Ĵ𰸣��Ϳ��Լ�֦��</strong></p>
-<p>�������Լ�֦��</p>
-<p>4����3���Լ����ƣ�����ɲμ�<a href="https://fellyhosn.blog.luogu.org/solution-p1731" target="_blank" rel="noopener">Fellyhosn��ƪ����</a>���Լ����ô��ˣ�</p>
-<p>�������Լ�֦��</p>
-<p>���ϣ����ǿ�д�����룺<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,ans=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> min_s[<span class="number">1000</span>],min_v[<span class="number">1000</span>],r[<span class="number">1000</span>],h[<span class="number">1000</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">scan</span><span class="params">(T &amp;x)</span></span>&#123;</span><br><span class="line">	x=<span class="number">0</span>;<span class="keyword">int</span> f=<span class="number">1</span>;<span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&gt;<span class="string">'9'</span>||c&lt;<span class="string">'0'</span>)&#123;<span class="keyword">if</span>(c==<span class="string">'-'</span>)f=-f;c=getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;x=x*<span class="number">10</span>+c-<span class="string">'0'</span>;c=getchar();&#125;</span><br><span class="line">	x*=f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> dep,<span class="keyword">int</span> s,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(dep==<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(v==n)&#123;</span><br><span class="line">			ans=min(s,ans);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(r[dep] = min((<span class="keyword">int</span>)<span class="built_in">sqrt</span>(n-v) , r[dep + <span class="number">1</span>] - <span class="number">1</span>) ; r[dep] &gt;= dep ;r[dep]-- )&#123;</span><br><span class="line">		<span class="keyword">for</span>(h[dep] = min((<span class="keyword">int</span>)(n-v) / r[dep] / r[dep] ,h[dep + <span class="number">1</span>] - <span class="number">1</span>) ;h[dep] &gt;= dep ;h[dep]--)&#123;<span class="comment">//1</span></span><br><span class="line">			<span class="keyword">if</span>(v + min_v[dep<span class="number">-1</span>] + r[dep] * r[dep] * h[dep]&gt; n)<span class="keyword">continue</span>;<span class="comment">//2</span></span><br><span class="line">			<span class="keyword">if</span>(s + min_s[dep - <span class="number">1</span>] + <span class="number">2</span> * r[dep] * h[dep] &gt;  ans)<span class="keyword">continue</span>;<span class="comment">//3</span></span><br><span class="line">			<span class="keyword">if</span>(s + <span class="number">2</span> * (n - v) / r[dep] &gt; ans )<span class="keyword">continue</span>;<span class="comment">//4</span></span><br><span class="line">			<span class="keyword">if</span>(dep == m)s += r[dep] * r[dep];</span><br><span class="line">			search(dep - <span class="number">1</span>,s + <span class="number">2</span> * r[dep] * h[dep],v + r[dep] * r[dep] * h[dep]);</span><br><span class="line">			<span class="keyword">if</span>(dep == m)s -= r[dep]*r[dep];<span class="comment">//ע�⣬�ӵ������Ҫ�����������������ᳬʱ������</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	scan(n);scan(m);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">		min_s[i]=min_s[i<span class="number">-1</span>]+<span class="number">2</span>*i*i;</span><br><span class="line">		min_v[i]=min_v[i<span class="number">-1</span>]+i*i*i;</span><br><span class="line">	&#125;</span><br><span class="line">	r[m+<span class="number">1</span>]=h[m+<span class="number">1</span>]=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line">	search(m,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans%<span class="number">0x3f3f3f3f</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <p>Hello</p>
 
           
         
