@@ -1,0 +1,114 @@
+/* ===========================================================================
+   PROFILE PAGES
+   ========================================================================== */
+
+.profile-hero {
+  margin: 0 0 2rem;
+  padding: 2rem;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  background: linear-gradient(135deg, var(--global-code-background-color), transparent);
+}
+
+.profile-eyebrow {
+  margin-bottom: 0.55rem;
+  color: var(--global-text-color-light);
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.profile-hero h1 {
+  margin: 0;
+  border: 0;
+  font-size: $type-size-2;
+  line-height: 1.1;
+}
+
+.profile-lead {
+  max-width: 44rem;
+  margin: 1rem 0 0;
+  font-size: $type-size-5;
+  line-height: 1.7;
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+}
+
+.profile-actions .btn {
+  margin: 0;
+  text-decoration: none;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.profile-card {
+  padding: 1.15rem;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  background: var(--global-bg-color);
+}
+
+.profile-card h3 {
+  margin-top: 0;
+  border-bottom: 0;
+  font-size: $type-size-5;
+}
+
+.profile-card p:last-child {
+  margin-bottom: 0;
+}
+
+.profile-period {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--global-text-color-light);
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+}
+
+.resume-entry {
+  margin: 1.75rem 0;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--global-border-color);
+}
+
+.resume-entry h3 {
+  margin: 0;
+  border-bottom: 0;
+  line-height: 1.35;
+}
+
+.resume-entry__meta {
+  margin: 0.35rem 0 0.8rem;
+  color: var(--global-text-color-light);
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+}
+
+.profile-note {
+  padding: 1rem 1.15rem;
+  border-left: 3px solid var(--global-link-color);
+  background: var(--global-code-background-color);
+}
+
+@include breakpoint(max-width $small) {
+  .profile-hero {
+    padding: 1.35rem;
+  }
+
+  .profile-hero h1 {
+    font-size: $type-size-3;
+  }
+}
